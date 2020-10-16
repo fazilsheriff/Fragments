@@ -15,6 +15,7 @@ class FragmentOne: Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        Log.i(TAG, "onAttach: ")
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +27,10 @@ class FragmentOne: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
         Log.i(TAG, "onCreateView: ")
+
+        val view =inflater!!.inflate(R.layout.fragment_one,container,false)
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -38,6 +41,11 @@ class FragmentOne: Fragment() {
     override fun onStart() {
         super.onStart()
         Log.i(TAG, "onStart: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, "onPause: ")
     }
 
     override fun onStop() {

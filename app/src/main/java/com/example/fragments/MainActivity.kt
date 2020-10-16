@@ -10,6 +10,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.i(TAG, "onCreate: ")
+        addFragment()
+    }
+
+    private fun addFragment() {
+        //Creating instance of fragment class
+        val fragmentOne=FragmentOne()
+        //Creating manager
+        val manager=supportFragmentManager
+        //Creating a transaction
+        val transaction=manager.beginTransaction()
+        //Adding fragment to the container
+        transaction.add(R.id.frag_container,fragmentOne)
+        //commiting the transaction
+        transaction.commit()
+
+
     }
 
     override fun onStart() {
