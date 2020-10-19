@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         val transaction=manager.beginTransaction()
         //Adding fragment to the container
         transaction.add(R.id.frag_container,fragmentOne)
+        //Adding Back stack
+        transaction.addToBackStack("one")
         //commiting the transaction
         transaction.commit()
 
