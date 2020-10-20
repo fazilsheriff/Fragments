@@ -18,10 +18,42 @@ package com.example.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.frag_one.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        addFragmentOne()
+        addFragmentTwo()
+
+    }
+
+    private fun addFragmentTwo() {
+        //Creating instance of fragment
+        val fragOne=FragmentTwo()
+        //Creating manager
+        val manager=supportFragmentManager
+        //Creating transaction
+        val transaction=manager.beginTransaction()
+        //Adding fragment to layout
+        transaction.add(R.id.fragmentTwo,fragOne)
+        //commit
+        transaction.commit()
+    }
+
+    private fun addFragmentOne() {
+        //Creating instance of fragment
+        val fragOne=FragmentOne()
+        //Creating manager
+        val manager=supportFragmentManager
+        //Creating transaction
+        val transaction=manager.beginTransaction()
+        //Adding fragment to layout
+        transaction.add(R.id.fragmentOne,fragOne)
+        //commit
+        transaction.commit()
     }
 }
