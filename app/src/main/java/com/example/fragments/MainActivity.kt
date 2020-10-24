@@ -19,9 +19,23 @@ package com.example.fragments
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),FragmentOne.onClickLisner{
+    //Creating instance of fragment
+    lateinit var fragmentOne: FragmentOne
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+         fragmentOne=FragmentOne()
+        supportFragmentManager.beginTransaction().add(R.id.fragmentOne,fragmentOne).commit()
+
+
+
     }
+
+    override fun navigate() {
+        fragmentOne.updateUI("KLM")
+    }
+
+
 }
