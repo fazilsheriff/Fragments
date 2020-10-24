@@ -18,24 +18,23 @@ package com.example.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(),FragmentOne.onClickLisner{
+class MainActivity : AppCompatActivity(){
     //Creating instance of fragment
     lateinit var fragmentOne: FragmentOne
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
          fragmentOne=FragmentOne()
         supportFragmentManager.beginTransaction().add(R.id.fragmentOne,fragmentOne).commit()
 
-
-
+        btnNavigate.setOnClickListener{
+            fragmentOne.updateUI("78KK")
+        }
     }
 
-    override fun navigate() {
-        fragmentOne.updateUI("KLM")
-    }
+
 
 
 }

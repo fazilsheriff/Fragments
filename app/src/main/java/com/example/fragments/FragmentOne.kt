@@ -10,18 +10,7 @@ import kotlinx.android.synthetic.main.fragment_one.*
 import kotlinx.android.synthetic.main.fragment_one.view.*
 
 class FragmentOne: Fragment() {
-    //Intiliazing the lateint value
-    lateinit var iOnClickLisner: onClickLisner
-    //Companion object
-    companion object {
-        fun newInstance(): FragmentOne {
-            return FragmentOne()
-        }
-    }
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        iOnClickLisner=activity as  onClickLisner
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,16 +18,14 @@ class FragmentOne: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_one,container,false)
-        iOnClickLisner.navigate()
+//        iOnClickLisner.navigate()
         return view
     }
 
         fun updateUI(text:String)
         {
             var s=text
-//            txtDisplay.text=text
+            txtDisplay.text=text
         }
-    interface onClickLisner{
-        fun navigate()
-    }
+
 }
