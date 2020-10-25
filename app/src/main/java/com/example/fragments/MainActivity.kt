@@ -18,10 +18,27 @@ package com.example.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),FragmentOne.iListenerFrageOne,FragmentTwo.iListerner {
+    var fragmentOne=FragmentOne()
+    var fragmentTwo= FragmentTwo()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        supportFragmentManager.beginTransaction().replace(R.id.fragOne,fragmentOne)
+            .replace(R.id.fragTwo,fragmentTwo)
+            .commit()
     }
+
+    override fun sendValuesToFragTwo(text: Editable) {
+        fragmentTwo.updateFragment2UI(text)
+    }
+
+    override fun sendValuesToFragOne(text: Editable) {
+        fragmentOne.updateFragmentOneUI(text)
+    }
+
+
 }
