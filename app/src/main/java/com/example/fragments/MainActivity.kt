@@ -16,44 +16,31 @@ package com.example.fragments
 ///Todo 15 : Congiguration changes orinetation
 
 
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.frag_one.*
+import android.view.View
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_two.*
+import kotlinx.android.synthetic.main.fragment_two.btnNaigateFrament1
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),FragmentOne.Ilistener{
+    var fragmentOne=FragmentOne()
+    var fragmentTwo=FragmentTwo()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        loadFragment.visibility= View.VISIBLE
 
-
-        addFragmentOne()
-        addFragmentTwo()
+        loadFragment.setOnClickListener{
+            supportFragmentManager.beginTransaction().replace(R.id.frameLayout,fragmentOne).addToBackStack("null").commit()
+            loadFragment.visibility= View.GONE
+        }
 
     }
 
-    private fun addFragmentTwo() {
-        //Creating instance of fragment
-        val fragOne=FragmentTwo()
-        //Creating manager
-        val manager=supportFragmentManager
-        //Creating transaction
-        val transaction=manager.beginTransaction()
-        //Adding fragment to layout
-        transaction.add(R.id.fragmentTwo,fragOne)
-        //commit
-        transaction.commit()
-    }
+    override fun navigateToFragment2() {
+        supportFragmentManager.beginTransaction().replace(R.id.frameLayout,fragmentTwo).addToBackStack("null").commit()
 
-    private fun addFragmentOne() {
-        //Creating instance of fragment
-        val fragOne=FragmentOne()
-        //Creating manager
-        val manager=supportFragmentManager
-        //Creating transaction
-        val transaction=manager.beginTransaction()
-        //Adding fragment to layout
-        transaction.add(R.id.fragmentOne,fragOne)
-        //commit
-        transaction.commit()
     }
 }

@@ -6,29 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-    android:id="@+id/fragmentOne" android:background="@color/colorAccent"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.03">
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/fragmentTwo"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="50dp"
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="329dp"
+        android:layout_height="511dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentOne"></RelativeLayout>
+        app:layout_constraintTop_toTopOf="@+id/loadFragment"></FrameLayout>
+
+    <Button
+        android:id="@+id/loadFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Fragment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.055" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
