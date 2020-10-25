@@ -18,10 +18,21 @@ package com.example.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),FragmentOne.iListner {
+    var fragmentOne=FragmentOne()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+       fragmentOne =FragmentOne()
+        supportFragmentManager.beginTransaction().replace(R.id.fragone,fragmentOne).commit()
+
+
+
+    }
+
+    override fun passValues(text: String) {
+        tvName.text=text
     }
 }
