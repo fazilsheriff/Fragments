@@ -12,7 +12,8 @@ class SecondActivity:AppCompatActivity() {
         val name:String = intent.getStringExtra("value")
         fragmentTwo= Fragment_Two()
         supportFragmentManager.beginTransaction().replace(R.id.fragmelayout2,fragmentTwo).commit()
-        fragmentTwo.displayText(name)
+//        fragmentTwo.displayText("22121")
+        fragmentTwo.displayName(name)
         }
 
 

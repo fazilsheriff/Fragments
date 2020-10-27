@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_two.*
+import kotlinx.android.synthetic.main.fragment_two.view.*
+
 
 class Fragment_Two:Fragment() {
     override fun onCreateView(
@@ -14,12 +16,20 @@ class Fragment_Two:Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view=inflater.inflate(R.layout.fragment_two,container,false)
-        txtName.text="12345"
+       view. txtName.text="12345"
 
         return view
     }
     fun displayText(name:String)
     {
-        txtName.text=name
+        var s=name
+        txtName.setText(name)
     }
+
+    fun displayName(name:String)
+    {
+        var s=name
+        txtName.setText(name)
+    }
+
 }
