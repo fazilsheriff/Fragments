@@ -16,12 +16,24 @@ package com.example.fragments
 ///Todo 15 : Congiguration changes orinetation
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),Fragment_One.INavigate2ActivitySecond {
+    lateinit var fragmentOne: Fragment_One
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        fragmentOne= Fragment_One()
+        supportFragmentManager.beginTransaction().add(R.id.frameLayout1,fragmentOne).commit()
+
+    }
+
+    override fun sendValues(name: String) {
+
+        val intent = Intent(this, SecondActivity::class.java)
+        intent.putExtra("value", name)
+        startActivity(intent)
     }
 }
