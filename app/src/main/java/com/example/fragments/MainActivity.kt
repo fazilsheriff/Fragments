@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity(){
         setContentView(R.layout.activity_main)
          fragmentOne=FragmentOne()
         supportFragmentManager.beginTransaction().add(R.id.fragmentOne,fragmentOne).commit()
+        fragmentOne.updateUI("78KK")
 
         btnNavigate.setOnClickListener{
             fragmentOne.updateUI("78KK")
