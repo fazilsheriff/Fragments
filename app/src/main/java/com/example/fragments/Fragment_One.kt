@@ -31,6 +31,7 @@ class Fragment_One:Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view=inflater.inflate(R.layout.fragment_one,container,false)
         view.btnSend.setOnClickListener{
            var text=view.edtName.text

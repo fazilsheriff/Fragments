@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.fragment_two.*
 import kotlinx.android.synthetic.main.fragment_two.view.*
 
 
-class Fragment_Two:Fragment() {
+class Fragment_Two:Fragment(), SecondActivity.ISecondActivityListener {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,6 +30,11 @@ class Fragment_Two:Fragment() {
     {
         var s=name
         txtName.setText(name)
+    }
+
+    override fun updateUI(text: String) {
+        txtName.setText(text)
+
     }
 
 }
