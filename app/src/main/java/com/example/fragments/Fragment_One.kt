@@ -34,6 +34,7 @@ class Fragment_One:Fragment() {
         val users = ArrayList<User>()
         users.add(User("Belal Khan"))
         users.add(User("Belal Basha"))
+        users.add(User("Belal Badusha"))
         val adapter = activity?.let { UserCustomAdapter(it,users) }
         recyclerView.adapter = adapter
 
