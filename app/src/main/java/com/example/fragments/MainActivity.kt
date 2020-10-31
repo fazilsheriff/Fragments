@@ -23,12 +23,11 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private  val TAG = "Random"
-    lateinit var sampleFragment:SampleFragment
+    lateinit var sampleFragment:Fragment_One
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        sampleFragment=SampleFragment()
+        sampleFragment=Fragment_One()
         supportFragmentManager.beginTransaction().add(R.id.frameLayout,sampleFragment).commit()
-        sampleFragment.updateUI("fazil")
     }
 }

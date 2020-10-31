@@ -1,42 +1,42 @@
 package com.example.fragments
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_one.view.*
 
 class Fragment_One:Fragment() {
-   lateinit var iNavigate2ActivitySecond:INavigate2ActivitySecond
+    //getting recyclerview from xml
+    //adding a layoutmanager
+    //crating an arraylist to store users using the data class user
 
-    companion object {
-        fun newInstance(): Fragment_One {
-            return Fragment_One()
-        }
-    }
+    //creating our adapter
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        iNavigate2ActivitySecond=activity as INavigate2ActivitySecond
-    }
 
-    interface INavigate2ActivitySecond
-    {
-        fun sendValues(name:String)
-    }
+
+    @SuppressLint("WrongConstant")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val view=inflater.inflate(R.layout.fragment_one,container,false)
-        view.btnSend.setOnClickListener{
-           var text=view.edtName.text
-            iNavigate2ActivitySecond.sendValues(text.toString())
-        }
+        val view=inflater.inflate(R.layout.fragme_list_names,container,false)
+        val recyclerView =view.findViewById(R.id.list_names) as RecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
+        val users = ArrayList<User>()
+        users.add(User("Belal Khan"))
+        users.add(User("Belal Basha"))
+        val adapter = activity?.let { UserCustomAdapter(it,users) }
+        recyclerView.adapter = adapter
+
         return view
     }
 }
